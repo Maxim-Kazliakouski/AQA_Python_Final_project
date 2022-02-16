@@ -105,9 +105,7 @@ def browser(request):
             options.add_argument(
                 "user-agent=Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36")
             options.headless = True
-<<<<<<< HEAD
             s = Service('Tools/chromedriver')
-=======
              # params for docker
             options = webdriver.ChromeOptions()
             options.add_argument('--no-sandbox')
@@ -116,7 +114,6 @@ def browser(request):
 
             s = Service('/usr/local/bin/chromedriver')
 #             s = Service('/Volumes/Work/TestProject/tools/chromedriver')
->>>>>>> 877290e7e93b4cc420768824b8ab5f0f383a0209
             browser = webdriver.Chrome(service=s, options=options)
 #             s = Service('/Volumes/Work/Python_courses/Project/POM/Tools/chromedriver')
 #             browser = webdriver.Chrome(service=s, options=options)
