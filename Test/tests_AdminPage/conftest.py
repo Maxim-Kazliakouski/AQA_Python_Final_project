@@ -148,18 +148,13 @@ def browser(request):
             options.headless = True
             s = Service('Tools/chromedriver')
             browser = webdriver.Chrome(service=s, options=options)
-             # params for docker
+            # params for docker
             options = webdriver.ChromeOptions()
             options.add_argument('--no-sandbox')
             options.add_argument('--headless')
             options.add_argument('--disable-gpu')
-
-            s = Service('/usr/local/bin/chromedriver')
-#             s = Service('/Volumes/Work/TestProject/tools/chromedriver')
-            browser = webdriver.Chrome(service=s, options=options)
-#             s = Service('/Volumes/Work/Python_courses/Project/POM/Tools/chromedriver')
-#             browser = webdriver.Chrome(service=s, options=options)
-            # browser = webdriver.Chrome('/Volumes/Work/TestProject/tools/chromedriver', options=options)
+            # s = Service('/usr/local/bin/chromedriver')
+            # browser = webdriver.Chrome(service=s, options=options)
             browser.maximize_window()
             browser.implicitly_wait(5)
         else:
