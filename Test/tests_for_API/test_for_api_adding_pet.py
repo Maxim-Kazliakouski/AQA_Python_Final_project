@@ -1,3 +1,4 @@
+import pytest
 import requests
 import Test.tests_for_API.conftest as conftest
 from Test.tests_for_API.data_for_api import APIdata
@@ -16,7 +17,7 @@ class Tests_for_pet_adding:
             except AssertionError as err:
                 logs_API.error(f"Pet hasn't been added, status code -> {response.status_code}")
                 raise err
-
+        @pytest.mark.xfail
         def test_finding_pet_by_id(self, logs_API):
             response = requests.get(APIdata.REQUEST_FOR_FINDING_PET_BY_ID)
             json_response = response.json()

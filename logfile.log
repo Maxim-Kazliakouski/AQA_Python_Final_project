@@ -1,8 +1,2 @@
-[2022-02-16 16:55:42,353] -- [ERROR][29]--[conftest->Tests_for_API]: 
-Pet hasn't been found by ID, status code -> 404
-[2022-02-16 18:42:04,496] -- [ERROR][29]--[conftest->Tests_for_API]: 
-Pet hasn't been found by ID, status code -> 404
-[2022-02-16 19:50:01,585] -- [ERROR][29]--[Test.tests_for_API.conftest->tests_for_API]: 
-Pet hasn't been found by ID, status code -> 404
-[2022-02-16 21:36:54,751] -- [ERROR][29]--[Test.tests_for_API.conftest->tests_for_API]: 
+[2022-02-17 01:15:19,779] -- [ERROR][30]--[Test.tests_for_API.conftest->tests_for_API]: 
 Pet hasn't been found by ID, status code -> 404
