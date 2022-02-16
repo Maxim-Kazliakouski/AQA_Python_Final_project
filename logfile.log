@@ -1,0 +1,2 @@
+[2022-02-16 16:55:42,353] -- [ERROR][29]--[conftest->Tests_for_API]: 
+Pet hasn't been found by ID, status code -> 404
