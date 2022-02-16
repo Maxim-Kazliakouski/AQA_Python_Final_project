@@ -1,8 +1,6 @@
 import psycopg2
 from psycopg2 import OperationalError
-from Tests.Tests_for_db.data_for_db import TestDataDB
 from DataBase.data_for_connection import ConnectionToDB
-from Pages.BasePage import BasePage
 
 
 # connection to the database for testing

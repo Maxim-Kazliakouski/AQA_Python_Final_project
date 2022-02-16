@@ -1,5 +1,6 @@
 import time
-from Tests.Tests_for_AdminPage.test_for_Admin_page import TestDataAdminPage
+# from Test.tests_AdminPage.test_for_Admin_page import TestDataAdminPage
+from Test.tests_AdminPage.data_for_AdminPage import TestDataAdminPage
 from Locators.main_page_locators import MainPageLocators
 from Pages.BasePage import BasePage
 from Locators.admin_page_locators import AdminPageLocators
@@ -100,7 +101,7 @@ class AdminPage(BasePage):
         save_button.click()
 
     def saving_variable(self, var):
-        file_for_variable = open("/Volumes/Work/Python_courses/Project/Final_project/Tests/Tests_for_AdminPage/var.txt",
+        file_for_variable = open("Test/tests_AdminPage/var.txt",
                                  'w')
         file_for_variable.write(var)
         file_for_variable.close()

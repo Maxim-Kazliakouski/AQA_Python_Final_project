@@ -1,8 +1,8 @@
 from selenium.webdriver.common.by import By
 
-from Tests.Tests_for_AdminPage.data_for_AdminPage import TestDataAdminPage
+from Test.tests_AdminPage.data_for_AdminPage import TestDataAdminPage
 import DataBase.PostgreSQL as DB
-from Tests.Tests_for_db.data_for_db import TestDataDB
+from Test.tests_for_db.data_for_db import TestDataDB
 
 connection_to_db = DB.connection
 request = DB.execute_read_query(connection_to_db, TestDataDB.QUERY_FOR_GETTING_FIRST_CREATED_POST)

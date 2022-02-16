@@ -1,11 +1,11 @@
 import time
-import Tests.Tests_for_AdminPage.data_for_AdminPage as data_admin
+import Test.tests_AdminPage.data_for_AdminPage as data_admin
 from Locators.admin_page_locators import AdminPageLocators
 from Locators.main_page_locators import MainPageLocators
 from Pages.BasePage import BasePage
 import DataBase.PostgreSQL as DB
-from Tests.Tests_for_MainPage.data_for_MainPage import TestData
-from Tests.Tests_for_db.data_for_db import TestDataDB
+from Test.tests_for_MainPage.data_for_MainPage import TestData
+from Test.tests_for_db.data_for_db import TestDataDB
 
 
 class MainPage(BasePage):
