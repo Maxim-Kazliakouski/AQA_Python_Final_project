@@ -4,3 +4,5 @@ Pet hasn't been found by ID, status code -> 404
 Pet hasn't been found by ID, status code -> 404
 [2022-02-16 19:50:01,585] -- [ERROR][29]--[Test.tests_for_API.conftest->tests_for_API]: 
 Pet hasn't been found by ID, status code -> 404
+[2022-02-16 21:36:54,751] -- [ERROR][29]--[Test.tests_for_API.conftest->tests_for_API]: 
+Pet hasn't been found by ID, status code -> 404
