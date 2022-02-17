@@ -167,7 +167,7 @@ class Test_for_admin_page:
             try:
                 error = page.search_element(AdminPageLocators.ERROR_MESSAGE_FORBIDDEN_SYMBOLS_DURING_REG_USERNAME).text
             except TimeoutException as err:
-                logs_admin_page.error('There is no such element on the page...')
+                logs_admin_page.error('There is no such element on the page like error message...')
                 raise err
             try:
                 assert TestDataAdminPage.ERROR_MESSAGE_FORBIDDEN_SYMBOLS_FOR_USERNAME == error, 'The forbidden symbol accepted for username'
