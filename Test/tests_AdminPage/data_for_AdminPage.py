@@ -10,5 +10,5 @@ class TestDataAdminPage:
     FORBIDDEN_SYMBOLS_FOR_USERNAME = ['!', '#', '$', '%', '^', '&', '*', '(',
                                       ')', '~', ',', "'", '<', '>', '/',
                                       '=', '$', '?', '|', '{', '}', '[', ']', '±', '§',
-                                      '№', ';', '"', ':']
+                                      ';', '"', ':']
     ERROR_MESSAGE_FORBIDDEN_SYMBOLS_FOR_USERNAME = "Enter a valid username. This value may contain only letters, numbers, and @/./+/-/_ characters."
