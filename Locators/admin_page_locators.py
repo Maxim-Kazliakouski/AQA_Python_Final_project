@@ -35,3 +35,7 @@ class AdminPageLocators:
     DATE_FIELD = By.XPATH, '//*[@id="id_date_0"]'
     DELETE_BUTTON = By.CLASS_NAME, 'deletelink'
     YES_SURE_BUTTON = By.CSS_SELECTOR, 'input[value="Yes, I’m sure"]'
+    ERROR_MESSAGE_DURING_REG_WITHOUT_USERNAME = By.XPATH, "//p[contains(text(),'Please correct the error below.')]"
+    ERROR_MESSAGE_DURING_REG_WITHOUT_PASSWORDS_AT_ALL = By.XPATH, "//p[contains(text(),'Please correct the errors below.')]"
+    ERROR_MESSAGE_DURING_REG_WITHOUT_CONFIRMED_PASSWORD = By.XPATH, "//p[contains(text(),'Please correct the error below.')]"
+    ERROR_MESSAGE_FORBIDDEN_SYMBOLS_DURING_REG_USERNAME = By.XPATH, '//*[@id="user_form"]/div/fieldset/div[1]/ul/li'

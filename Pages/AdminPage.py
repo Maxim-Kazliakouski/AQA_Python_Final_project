@@ -133,3 +133,40 @@ class AdminPage(BasePage):
         password_field.send_keys(TestDataAdminPage.PASSWORD)
         login_button = self.search_element(MainPageLocators.LOGIN_BUTTON)
         login_button.click()
+
+    def creating_user_without_username(self):
+        adding_user_button = self.search_element(AdminPageLocators.ADDING_USER_BUTTON)
+        adding_user_button.click()
+        password1_field = self.search_element(AdminPageLocators.PASSWORD_FIELD1)
+        password1_field.send_keys(TestDataAdminPage.PASSWORD)
+        password2_field = self.search_element(AdminPageLocators.PASSWORD_FIELD2)
+        password2_field.send_keys(TestDataAdminPage.PASSWORD)
+        save_button = self.search_element(AdminPageLocators.SAVE_BUTTON)
+        save_button.click()
+
+    def creating_user_without_passwords_at_all(self):
+        adding_user_button = self.search_element(AdminPageLocators.ADDING_USER_BUTTON)
+        adding_user_button.click()
+        username_field = self.search_element(AdminPageLocators.USERNAME_FIELD)
+        username_field.send_keys(TestDataAdminPage.USERNAME)
+        save_button = self.search_element(AdminPageLocators.SAVE_BUTTON)
+        save_button.click()
+
+    def creating_user_without_confirmed_password(self):
+        adding_user_button = self.search_element(AdminPageLocators.ADDING_USER_BUTTON)
+        adding_user_button.click()
+        username_field = self.search_element(AdminPageLocators.USERNAME_FIELD)
+        username_field.send_keys(TestDataAdminPage.USERNAME)
+        password1_field = self.search_element(AdminPageLocators.PASSWORD_FIELD1)
+        password1_field.send_keys(TestDataAdminPage.PASSWORD)
+        save_button = self.search_element(AdminPageLocators.SAVE_BUTTON)
+        save_button.click()
+
+    def creating_user_with_forbidden_symbols(self, username):
+        adding_user_button = self.search_element(AdminPageLocators.ADDING_USER_BUTTON)
+        adding_user_button.click()
+        username_field = self.search_element(AdminPageLocators.USERNAME_FIELD)
+        username_field.send_keys(username)
+        save_button = self.search_element(AdminPageLocators.SAVE_BUTTON)
+        save_button.click()
+
