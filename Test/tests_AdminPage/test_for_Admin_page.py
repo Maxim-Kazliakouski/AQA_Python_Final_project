@@ -174,5 +174,3 @@ class Test_for_admin_page:
             except AssertionError as err:
                 logs_admin_page.error('The forbidden symbol accepted for username')
                 raise err
-
-

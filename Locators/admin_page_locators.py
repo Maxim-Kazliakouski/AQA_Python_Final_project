@@ -23,7 +23,7 @@ class AdminPageLocators:
     PASSWORD_FIELD2 = By.NAME, 'password2'
     SAVE_BUTTON = By.CSS_SELECTOR, 'input[value="Save"]'
     CREATED_USER = By.XPATH, f"//a[contains(text(),'{TestDataAdminPage.USERNAME}')]"
-    GROUP_NAME = By.XPATH, "//option[contains(text(),'New group')]"
+    GROUP_NAME = By.XPATH, "//option[contains(text(),'Test group max')]"
     ADD_BUTTON = By.ID, "id_groups_add_link"
     LOGOUT_BUTTON = By.XPATH, '//*[@id="user-tools"]/a[3]'
     LOGIN_AGAIN_BUTTON = By.XPATH, '//*[@id="content"]/p[2]/a'

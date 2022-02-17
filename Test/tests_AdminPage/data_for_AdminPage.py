@@ -9,6 +9,7 @@ class TestDataAdminPage:
     ERROR_MESSAGE_DURING_REG_WITHOUT_CONFIRMED_PASSWORD = 'Please correct the error below.'
     FORBIDDEN_SYMBOLS_FOR_USERNAME = ['!', '#', '$', '%', '^', '&', '*', '(',
                                       ')', '~', ',', "'", '<', '>', '/',
-                                      '=', '$', '?', '|', '{', '}', '[', ']', '±', '§',
+                                      '=', '?', '|', '{', '}', '[', ']', '±', '§',
                                       ';', '"', ':']
     ERROR_MESSAGE_FORBIDDEN_SYMBOLS_FOR_USERNAME = "Enter a valid username. This value may contain only letters, numbers, and @/./+/-/_ characters."
+    
