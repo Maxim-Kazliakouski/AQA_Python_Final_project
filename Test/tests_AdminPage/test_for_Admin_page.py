@@ -1,6 +1,4 @@
 import time
-import pytest
-from selenium.common.exceptions import TimeoutException
 import Pages.AdminPage as from_admin_page
 import DataBase.PostgreSQL as DB
 from Test.tests_for_MainPage.data_for_MainPage import TestData
@@ -11,7 +9,8 @@ from Locators.admin_page_locators import AdminPageLocators
 
 class Test_for_admin_page:
     class Test_positive_cases:
-        def test_user_on_login_page(self, browser, starting_clearing_closing_db, logs_admin_page):
+        def test_user_on_login_page(self, browser, starting_clearing_closing_db, logs_admin_page,
+                                    clearing_results_folder):
             link = TestDataAdminPage.ADMIN_PAGE_LOGIN_URL
             page = from_admin_page.AdminPage(browser, link)
             page.open_page(link)
@@ -206,4 +205,3 @@ class Test_for_admin_page:
             page.go_to_change_password()
             page.returning_to_default_password()
             time.sleep(3)
-
