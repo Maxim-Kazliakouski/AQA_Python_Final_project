@@ -118,7 +118,7 @@ class AdminPage(BasePage):
         result = ''.join(user_id)
         return result
 
-    def exiting_from_admin_panel(self):
+    def logout_from_admin_panel(self):
         logout_button = self.search_element(AdminPageLocators.LOGOUT_BUTTON)
         logout_button.click()
 
@@ -169,4 +169,37 @@ class AdminPage(BasePage):
         username_field.send_keys(username)
         save_button = self.search_element(AdminPageLocators.SAVE_BUTTON)
         save_button.click()
+
+    def redirection_from_admin_to_main_page(self):
+        self.click_on_element(AdminPageLocators.VIEW_SITE_BUTTON)
+
+    def go_to_change_password(self):
+        self.click_on_element(AdminPageLocators.CHANGE_PASSWORD_BUTTON)
+
+    def go_to_home_adminpage(self):
+        self.click_on_element(AdminPageLocators.ADMINPAGE_HOME_BUTTON)
+
+    def changing_password(self):
+        old_password = self.search_element(AdminPageLocators.OLD_PASSWORD_FIELD)
+        old_password.send_keys(TestDataAdminPage.PASSWORD_FOR_ADMIN)
+        new_password1 = self.search_element(AdminPageLocators.NEW_PASSWORD1_FIELD)
+        new_password1.send_keys(TestDataAdminPage.PASSWORD_FOR_CHANGING)
+        new_password2 = self.search_element(AdminPageLocators.NEW_PASSWORD2_FIELD)
+        new_password2.send_keys(TestDataAdminPage.PASSWORD_FOR_CHANGING)
+        change_my_password_button = self.search_element(AdminPageLocators.CHANGE_MY_PASSWORD_BUTTON)
+        change_my_password_button.click()
+
+    def returning_to_default_password(self):
+        old_password = self.search_element(AdminPageLocators.OLD_PASSWORD_FIELD)
+        old_password.send_keys(TestDataAdminPage.PASSWORD_FOR_CHANGING)
+        new_password1 = self.search_element(AdminPageLocators.NEW_PASSWORD1_FIELD)
+        new_password1.send_keys(TestDataAdminPage.PASSWORD_FOR_ADMIN)
+        new_password2 = self.search_element(AdminPageLocators.NEW_PASSWORD2_FIELD)
+        new_password2.send_keys(TestDataAdminPage.PASSWORD_FOR_ADMIN)
+        change_my_password_button = self.search_element(AdminPageLocators.CHANGE_MY_PASSWORD_BUTTON)
+        change_my_password_button.click()
+
+
+
+
 

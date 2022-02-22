@@ -1,7 +1,8 @@
 class TestDataAdminPage:
     ADMIN_PAGE_LOGIN_URL = 'http://localhost:8000/admin/login/?next=/admin/login'
     USER_NAME_FOR_ADMIN = 'admin'
-    PASSWORD_FOR_ADMIN = 'password'
+    PASSWORD_FOR_ADMIN = 'qwerty!@#$%^'
+    PASSWORD_FOR_CHANGING = 'password!@#'
     USERNAME = 'Test'
     PASSWORD = 'maxim05091991'
     ERROR_MESSAGE_DURING_REG_WITHOUT_NAME = 'Please correct the error below.'
@@ -12,4 +13,5 @@ class TestDataAdminPage:
                                       '=', '?', '|', '{', '}', '[', ']', '±', '§',
                                       ';', '"', ':']
     ERROR_MESSAGE_FORBIDDEN_SYMBOLS_FOR_USERNAME = "Enter a valid username. This value may contain only letters, numbers, and @/./+/-/_ characters."
-    
+    CHANGE_PASSWORD_SUCCESS_MESSAGE = 'Password change successful'
+

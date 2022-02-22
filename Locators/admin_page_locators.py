@@ -39,3 +39,14 @@ class AdminPageLocators:
     ERROR_MESSAGE_DURING_REG_WITHOUT_PASSWORDS_AT_ALL = By.XPATH, "//p[contains(text(),'Please correct the errors below.')]"
     ERROR_MESSAGE_DURING_REG_WITHOUT_CONFIRMED_PASSWORD = By.XPATH, "//p[contains(text(),'Please correct the error below.')]"
     ERROR_MESSAGE_FORBIDDEN_SYMBOLS_DURING_REG_USERNAME = By.XPATH, '//*[@id="user_form"]/div/fieldset/div[1]/ul/li'
+    VIEW_SITE_BUTTON = By.XPATH, '//*[@id="user-tools"]/a[1]'
+    CHANGE_PASSWORD_BUTTON = By.XPATH, '//*[@id="user-tools"]/a[2]'
+    OLD_PASSWORD_FIELD = By.NAME, 'old_password'
+    NEW_PASSWORD1_FIELD = By.NAME, 'new_password1'
+    NEW_PASSWORD2_FIELD = By.NAME, 'new_password2'
+    CHANGE_MY_PASSWORD_BUTTON = By.CSS_SELECTOR, "[value='Change my password']"
+    CHANGE_PASSWORD_SUCCESS_MESSAGE = By.XPATH, "//h1[contains(text(),'Password change successful')]"
+    ADMINPAGE_HOME_BUTTON = By.XPATH, '//*[@id="container"]/div[2]/a'
+
+
+

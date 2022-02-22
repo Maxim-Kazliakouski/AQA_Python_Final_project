@@ -1,13 +1,9 @@
-# import sys
 import time
-
 import pytest
 from selenium.common.exceptions import TimeoutException
-
-import Locators.admin_page_locators
 import Pages.AdminPage as from_admin_page
-# sys.path.insert(0, '/Volumes/Work/Python_courses/Project/Final_project/Pages')
 import DataBase.PostgreSQL as DB
+from Test.tests_for_MainPage.data_for_MainPage import TestData
 from Test.tests_for_db.data_for_db import TestDataDB
 from Test.tests_AdminPage.data_for_AdminPage import TestDataAdminPage
 from Locators.admin_page_locators import AdminPageLocators
@@ -32,7 +28,8 @@ class Test_for_admin_page:
             page.open_page(link)
             page.login_to_admin_page_under_admin()
             try:
-                assert page.getting_user_name().lower() == TestDataAdminPage.USER_NAME_FOR_ADMIN, "User hasn't login to admin page"
+                assert page.getting_user_name().lower() == TestDataAdminPage.USER_NAME_FOR_ADMIN, \
+                    "User hasn't login to admin page"
             except AssertionError as error:
                 logs_admin_page.error("User hasn't login to admin page")
                 raise error
@@ -44,7 +41,8 @@ class Test_for_admin_page:
             page.login_to_admin_page_under_admin()
             page.go_to_group_tab()
             try:
-                assert TestDataDB.GROUP_NAME in page.getting_group_list(), f"The '{TestDataDB.GROUP_NAME}' group hasn't been added!"
+                assert TestDataDB.GROUP_NAME in page.getting_group_list(), \
+                    f"The '{TestDataDB.GROUP_NAME}' group hasn't been added!"
             except AssertionError as error:
                 logs_admin_page.error(f"The '{TestDataDB.GROUP_NAME}' group hasn't been added!")
                 raise error
@@ -61,8 +59,8 @@ class Test_for_admin_page:
             page.go_to_users_tab()
             page.getting_users_list()
             try:
-                assert TestDataAdminPage.USERNAME in page.getting_users_list(), f"The user '{TestDataAdminPage.USERNAME}'" \
-                                                                                f" hasn't been created"
+                assert TestDataAdminPage.USERNAME in page.getting_users_list(), \
+                    f"The user '{TestDataAdminPage.USERNAME}' hasn't been created"
             except AssertionError as error:
                 logs_admin_page.error(f"The user '{TestDataAdminPage.USERNAME}' hasn't been created")
                 raise error
@@ -107,12 +105,13 @@ class Test_for_admin_page:
             except AssertionError as error:
                 logs_admin_page.error(f"The user {user_id} hasn't been created in admin panel")
                 raise error
-            page.exiting_from_admin_panel()
+            page.logout_from_admin_panel()
             page.login_again_button()
             page.login_to_admin_page_under_new_created_user()
             username = page.getting_user_name()
             try:
-                assert username == TestDataAdminPage.USERNAME.upper(), f"The user '{TestDataAdminPage.USERNAME}' hasn't been logged"
+                assert username == TestDataAdminPage.USERNAME.upper(), \
+                    f"The user '{TestDataAdminPage.USERNAME}' hasn't been logged"
             except AssertionError as error:
                 logs_admin_page.error(f"The user '{TestDataAdminPage.USERNAME}' hasn't been logged")
                 raise error
@@ -126,7 +125,8 @@ class Test_for_admin_page:
             page.creating_user_without_username()
             error = page.search_element(AdminPageLocators.ERROR_MESSAGE_DURING_REG_WITHOUT_USERNAME).text
             try:
-                assert TestDataAdminPage.ERROR_MESSAGE_DURING_REG_WITHOUT_NAME == error, 'The user has been created without username'
+                assert TestDataAdminPage.ERROR_MESSAGE_DURING_REG_WITHOUT_NAME == error, \
+                    'The user has been created without username'
             except AssertionError as err:
                 logs_admin_page.error('The user has been created without username')
                 raise err
@@ -139,7 +139,8 @@ class Test_for_admin_page:
             page.creating_user_without_passwords_at_all()
             error = page.search_element(AdminPageLocators.ERROR_MESSAGE_DURING_REG_WITHOUT_PASSWORDS_AT_ALL).text
             try:
-                assert TestDataAdminPage.ERROR_MESSAGE_DURING_REG_WITHOUT_PASSWORDS_AT_ALL == error, 'The has been created without passwords'
+                assert TestDataAdminPage.ERROR_MESSAGE_DURING_REG_WITHOUT_PASSWORDS_AT_ALL == error, \
+                    'The has been created without passwords'
             except AssertionError as err:
                 logs_admin_page.error('The has been created without passwords')
                 raise err
@@ -152,25 +153,57 @@ class Test_for_admin_page:
             page.creating_user_without_confirmed_password()
             error = page.search_element(AdminPageLocators.ERROR_MESSAGE_DURING_REG_WITHOUT_CONFIRMED_PASSWORD).text
             try:
-                assert TestDataAdminPage.ERROR_MESSAGE_DURING_REG_WITHOUT_CONFIRMED_PASSWORD == error, "The user has been created without confirmed password"
+                assert TestDataAdminPage.ERROR_MESSAGE_DURING_REG_WITHOUT_CONFIRMED_PASSWORD == error, \
+                    "The user has been created without confirmed password"
             except AssertionError as err:
                 logs_admin_page.error("The user has been created without confirmed password")
                 raise err
 
-        @pytest.mark.parametrize('forbidden_symbols', TestDataAdminPage.FORBIDDEN_SYMBOLS_FOR_USERNAME)
-        def test_creating_user_with_forbidden_symbols(self, browser, logs_admin_page, forbidden_symbols):
+        # @pytest.mark.parametrize('forbidden_symbols', TestDataAdminPage.FORBIDDEN_SYMBOLS_FOR_USERNAME)
+        # def test_creating_user_with_forbidden_symbols(self, browser, logs_admin_page, forbidden_symbols):
+        #     link = TestDataAdminPage.ADMIN_PAGE_LOGIN_URL
+        #     page = from_admin_page.AdminPage(browser, link)
+        #     page.open_page(link)
+        #     page.login_to_admin_page_under_admin()
+        #     page.creating_user_with_forbidden_symbols(forbidden_symbols)
+        #     try:
+        #         error = page.search_element(AdminPageLocators.ERROR_MESSAGE_FORBIDDEN_SYMBOLS_DURING_REG_USERNAME).text
+        #     except TimeoutException as err:
+        #         logs_admin_page.error('There is no such element on the page like error message...')
+        #         raise err
+        #     try:
+        #         assert TestDataAdminPage.ERROR_MESSAGE_FORBIDDEN_SYMBOLS_FOR_USERNAME == error, \
+        #             'The forbidden symbol accepted for username'
+        #     except AssertionError as err:
+        #         logs_admin_page.error('The forbidden symbol accepted for username')
+        #         raise err
+
+        def test_redirection_from_admin_panel_to_main_page(self, browser, logs_admin_page):
             link = TestDataAdminPage.ADMIN_PAGE_LOGIN_URL
             page = from_admin_page.AdminPage(browser, link)
             page.open_page(link)
             page.login_to_admin_page_under_admin()
-            page.creating_user_with_forbidden_symbols(forbidden_symbols)
+            page.redirection_from_admin_to_main_page()
+            main_page_url = page.getting_current_url()
             try:
-                error = page.search_element(AdminPageLocators.ERROR_MESSAGE_FORBIDDEN_SYMBOLS_DURING_REG_USERNAME).text
-            except TimeoutException as err:
-                logs_admin_page.error('There is no such element on the page like error message...')
-                raise err
-            try:
-                assert TestDataAdminPage.ERROR_MESSAGE_FORBIDDEN_SYMBOLS_FOR_USERNAME == error, 'The forbidden symbol accepted for username'
+                assert main_page_url == TestData.MAINPAGE_URL, "User isn't on main page or don't logout"
             except AssertionError as err:
-                logs_admin_page.error('The forbidden symbol accepted for username')
+                logs_admin_page.error("User isn't on main page or don't logout")
                 raise err
+
+        def test_changing_password_in_admin_panel(self, browser, logs_admin_page):
+            link = TestDataAdminPage.ADMIN_PAGE_LOGIN_URL
+            page = from_admin_page.AdminPage(browser, link)
+            page.open_page(link)
+            page.login_to_admin_page_under_admin()
+            page.go_to_change_password()
+            page.changing_password()
+            time.sleep(3)
+            success = page.search_element(AdminPageLocators.CHANGE_PASSWORD_SUCCESS_MESSAGE).text
+            assert success == TestDataAdminPage.CHANGE_PASSWORD_SUCCESS_MESSAGE, "Password hasn't been changed"
+            # returning password to the default
+            page.go_to_home_adminpage()
+            page.go_to_change_password()
+            page.returning_to_default_password()
+            time.sleep(3)
+

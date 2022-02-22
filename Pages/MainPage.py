@@ -63,6 +63,20 @@ class MainPage(BasePage):
         print(id_posts_list)
         return id_posts_list
 
-    # def getting_post_in_admin_panel(self):
-    #     firs_post = self.search_element(AdminPageLocators.FIRST_CREATED_POST)
-    #     firs_post.click()
+    def getting_contacts_list_from_main_page(self):
+        self.click_on_element(MainPageLocators.NAVBAR_BUTTON)
+        time.sleep(1)
+        contact_list = self.search_element(MainPageLocators.CONTACT_LIST).text
+        return contact_list
+
+    def getting_about_info(self):
+        self.click_on_element(MainPageLocators.NAVBAR_BUTTON)
+        time.sleep(1)
+        try:
+            about_info = self.search_element(MainPageLocators.ABOUT_INFO).text
+            if about_info != '':
+                return True
+        except:
+            return False
+
+

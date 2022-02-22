@@ -5,8 +5,6 @@ user_id = str(varfile.read())
 
 
 class TestDataDB:
-    # writing variable
-    #
     GROUP_NAME = 'Test group max'
     QUERY_FOR_ADDING_GROUP = """insert into auth_group (id, name) values (2, 'Test group max')"""
     QUERY_NAME_FOR_ADDING_GROUP = 'adding new group'
@@ -22,9 +20,10 @@ class TestDataDB:
     QUERY_FOR_GETTING_INFO_BY_USER = """select id, is_superuser, username, first_name, last_name, email, is_staff, is_active from auth_user where id="""
     QUERY_FOR_GETTING_FIRST_CREATED_POST = """select min(id) from app_post"""
     QUERY_FOR_GETTING_POSTS_LIST = """select id from app_post"""
-    DELETING_ALL_POSTS = """delete from app_post where id>201"""
+    DELETING_ALL_POSTS = """delete from app_post where id>3"""
     SUCCESS_DELETING_ALL_POSTS = f"Query {DELETING_ALL_POSTS} executed successfully"
-    ADDING_POST_FOR_START_TEST = """insert into app_post (id, date, photo) values (199, '2022-02-09', 'Test photo') ON CONFLICT DO NOTHING"""
-    ADDING_POST_FOR_START_TEST1 = """insert into app_post (id, date, photo) values (198, '2022-02-09', 'Test photo') ON CONFLICT DO NOTHING"""
+    ADDING_POST_FOR_START_TEST = """insert into app_post (id, date, photo) values (1, '2022-02-09', 'Test photo') ON CONFLICT DO NOTHING"""
+    ADDING_POST_FOR_START_TEST1 = """insert into app_post (id, date, photo) values (2, '2022-02-09', 'Test photo') ON CONFLICT DO NOTHING"""
     DELETING_ALL_USERS_FROM_GROUPS = """delete from auth_user_groups where id>86"""
-    DELETING_ALL_USERS = """delete from auth_user where id>86"""
+    DELETING_ALL_USERS = """delete from auth_user where id>2"""
+    DELETING_ALL_GROUPS = """delete from auth_user_groups *"""

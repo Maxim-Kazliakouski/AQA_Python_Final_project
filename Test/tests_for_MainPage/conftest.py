@@ -11,6 +11,7 @@ from DataBase.data_for_connection import ConnectionToDB
 # from Test.tests_for_db.data_for_db import TestDataDB
 from ..tests_for_db.data_for_db import TestDataDB
 
+
 @pytest.fixture(scope='session')
 def starting_closing_db():
     print(f'\nConnecting to BD {ConnectionToDB.DB_NAME}...')
@@ -55,7 +56,8 @@ def logs_main_page():
     # FileHandler class to set the location of log file
     fileHandler = logging.FileHandler('./logfile.log', mode='a', delay=False)
     # Formatter class to set the format of log file
-    formatter = logging.Formatter("[%(asctime)s] -- [%(levelname)s][%(lineno)d]--[%(name)s->Tests_for_MainPAge]: \n%(message)s")
+    formatter = logging.Formatter(
+        "[%(asctime)s] -- [%(levelname)s][%(lineno)d]--[%(name)s->Tests_for_MainPAge]: \n%(message)s")
     # object of FileHandler gets formatting info from setFormatter #method
     fileHandler.setFormatter(formatter)
     # logger object gets formatting, path of log file info with addHandler #method
@@ -155,4 +157,3 @@ def browser(request):
 #     config.read('/Volumes/Work/Parse_project/data_for_test/test_data_hw21.ini')
 #     value = config.get(section, value)
 #     return value
-

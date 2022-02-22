@@ -29,7 +29,13 @@ def starting_clearing_closing_db():
         raise print("Users haven't been deleted")
     yield
     print('Deleting new created group via database...')
-    DB.execute_query(connection, TestDataDB.DELETING_NEW_GROUP)
+    try:
+        DB.execute_query(connection, TestDataDB.DELETING_NEW_GROUP)
+    except:
+        raise print("New group hasn't been deleted")
+    try: DB.execute_query(connection, TestDataDB.DELETING_ALL_GROUPS)
+    except:
+        raise print("All groups hasn't been deleted")
     connection.close()
 
 

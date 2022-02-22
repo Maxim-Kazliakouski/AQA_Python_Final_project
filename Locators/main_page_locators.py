@@ -8,3 +8,7 @@ class MainPageLocators:
     PASSWORD_FIELD = By.NAME, 'password'
     LOGIN_BUTTON = By.XPATH, '//*[@id="login-form"]/div[3]/input'
     POST_DATE = By.XPATH, "//small[contains(text(),'Feb. 10')]"
+    NAVBAR_BUTTON = By.CLASS_NAME, "navbar-toggler-icon"
+    CONTACT_LIST = By.CLASS_NAME, "list-unstyled"
+    ABOUT_INFO = By.CLASS_NAME, "text-muted"
+    ALBUM_BUTTON = By.CLASS_NAME, "navbar-brand.d-flex.align-items-center"

@@ -17,6 +17,7 @@ class Tests_for_pet_adding:
             except AssertionError as err:
                 logs_API.error(f"Pet hasn't been added, status code -> {response.status_code}")
                 raise err
+
         @pytest.mark.xfail
         def test_finding_pet_by_id(self, logs_API):
             response = requests.get(APIdata.REQUEST_FOR_FINDING_PET_BY_ID)
@@ -37,7 +38,7 @@ class Tests_for_pet_adding:
             try:
                 assert response.status_code == APIdata.STATUS_CODE_200, f"Pet name hasn't been updated, status code -> {response.status_code}"
                 assert json_response['category'][
-                       'name'] == APIdata.PET_NAME_2, f"The pet name doesn't change on {APIdata.PET_NAME_2}"
+                           'name'] == APIdata.PET_NAME_2, f"The pet name doesn't change on {APIdata.PET_NAME_2}"
             except AssertionError as err:
                 logs_API.error(f"The pet name doesn't change on {APIdata.PET_NAME_2}")
                 raise err
