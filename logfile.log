@@ -10,3 +10,9 @@ User isn't on main page or don't logout
 User isn't on main page or don't logout
 [2022-02-21 19:14:39,379] -- [ERROR][192]--[Test.tests_AdminPage.conftest->tests_AdminPage]: 
 User isn't on main page or don't logout
+[2022-02-23 00:29:23,896] -- [ERROR][31]--[Test.tests_for_API.conftest->tests_for_API]: 
+Pet hasn't been found by ID, status code -> 404
+[2022-02-23 00:31:55,622] -- [ERROR][31]--[Test.tests_for_API.conftest->tests_for_API]: 
+Pet hasn't been found by ID, status code -> 404
+[2022-02-23 00:39:03,468] -- [ERROR][31]--[Test.tests_for_API.conftest->tests_for_API]: 
+Pet hasn't been found by ID, status code -> 404
