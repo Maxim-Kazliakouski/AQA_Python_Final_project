@@ -126,7 +126,7 @@ def pytest_addoption(parser):
 def clearing_results_folder():
     print('\nClearing results folder...')
     time.sleep(2)
-    os.system("rm -rf /Volumes/MacOS/Users/max_kazliakouski/.jenkins/workspace/Final_project/allure-results/")
+    os.system("rm -rf /Volumes/MacOS/Users/max_kazliakouski/.jenkins/workspace/Final_project/allure-results/*")
 
 
 @pytest.fixture(scope='function')
