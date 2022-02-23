@@ -33,7 +33,8 @@ def starting_clearing_closing_db():
         DB.execute_query(connection, TestDataDB.DELETING_NEW_GROUP)
     except:
         raise print("New group hasn't been deleted")
-    try: DB.execute_query(connection, TestDataDB.DELETING_ALL_GROUPS)
+    try:
+        DB.execute_query(connection, TestDataDB.DELETING_ALL_GROUPS)
     except:
         raise print("All groups hasn't been deleted")
     connection.close()
@@ -175,18 +176,54 @@ def browser(request):
             browser = webdriver.Chrome(service=s, options=options)
             browser.maximize_window()
             browser.implicitly_wait(5)
-    elif browser_name == 'safari':
+    elif browser_name == 'mozila':
         if headless == 'true':
-            # options = webdriver.Safari()
-            # options.headless = True
-            browser = webdriver.Safari()
-        else:
-            # fp = webdriver.FirefoxProfile(options=options)
-            # fp.set_preference("intl.accept_languages", user_language)
-            # browser = webdriver.Firefox(executable_path='/Users/maxkazliakouski/Downloads/geckodriver')
-            browser = webdriver.Safari()
+            options = webdriver.FirefoxOptions()
+            options.headless = True
+            s = Service('Tools/geckodriver')
+            browser = webdriver.Firefox(service=s, options=options)
+            # params for docker
+            options = webdriver.ChromeOptions()
+            options.add_argument('--no-sandbox')
+            options.add_argument('--headless')
+            options.add_argument('--disable-gpu')
             browser.maximize_window()
-            print(f'Start {browser_name} browser for test...')
+            browser.implicitly_wait(5)
+        else:
+            options = webdriver.FirefoxOptions()
+            options.headless = False
+            s = Service('Tools/geckodriver')
+            browser = webdriver.Firefox(service=s, options=options)
+            browser.maximize_window()
+            browser.implicitly_wait(5)
+    elif browser_name == 'opera':
+        if headless == 'true':
+            options = webdriver.ChromeOptions()
+            options.binary_location = 'Tools/Opera'
+            options.headless = True
+            # s = Service('Tools/operadriver')
+            browser = webdriver.Chrome(options=options)
+            # params for docker
+            # options = webdriver.Opera()
+            options.add_argument('--no-sandbox')
+            options.add_argument('--headless')
+            options.add_argument('--disable-gpu')
+            browser.maximize_window()
+            browser.implicitly_wait(5)
+        else:
+            options = webdriver.ChromeOptions()
+            options.binary_location = 'Tools/Opera'
+            options.headless = False
+            # s = Service('Tools/operadriver')
+            browser = webdriver.Chrome(options=options)
+            browser.maximize_window()
+            browser.implicitly_wait(5)
+    elif browser_name == 'safari':
+        s = Service('Tools/safaridriver')
+        browser = webdriver.Safari(service=s)
+        browser.maximize_window()
+        browser.implicitly_wait(5)
+        print(f'Start {browser_name} browser for test...')
     else:
         print(f'Browser {browser_name} still not implemented')
 

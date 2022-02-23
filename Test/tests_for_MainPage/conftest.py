@@ -3,6 +3,7 @@ import pytest
 import logging
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.opera import options
 import os
 # import sys
 # sys.path.insert(0, '/Volumes/Work/Python_courses/Project/Final_project')
@@ -130,18 +131,55 @@ def browser(request):
             browser = webdriver.Chrome(service=s, options=options)
             browser.maximize_window()
             browser.implicitly_wait(5)
-    elif browser_name == 'safari':
+    elif browser_name == 'mozila':
         if headless == 'true':
-            # options = webdriver.Safari()
-            # options.headless = True
-            browser = webdriver.Safari()
-        else:
-            # fp = webdriver.FirefoxProfile(options=options)
-            # fp.set_preference("intl.accept_languages", user_language)
-            # browser = webdriver.Firefox(executable_path='/Users/maxkazliakouski/Downloads/geckodriver')
-            browser = webdriver.Safari()
+            options = webdriver.FirefoxOptions()
+            options.headless = True
+            s = Service('Tools/geckodriver')
+            browser = webdriver.Firefox(service=s, options=options)
+            # params for docker
+            options = webdriver.FirefoxOptions()
+            options.add_argument('--no-sandbox')
+            options.add_argument('--headless')
+            options.add_argument('--disable-gpu')
             browser.maximize_window()
-            print(f'Start {browser_name} browser for test...')
+            browser.implicitly_wait(5)
+        else:
+            options = webdriver.FirefoxOptions()
+            options.headless = False
+            s = Service('Tools/geckodriver')
+            browser = webdriver.Firefox(service=s, options=options)
+            browser.maximize_window()
+            browser.implicitly_wait(5)
+    elif browser_name == 'opera':
+        if headless == 'true':
+            # options = webdriver.Opera
+            # options.headless = True
+            # s = Service('Tools/operadriver')
+            browser = webdriver.Opera(executable_path='Tools/operadriver')
+            # params for docker
+            options = webdriver.Opera()
+            options.add_argument('--no-sandbox')
+            options.add_argument('--headless')
+            options.add_argument('--disable-gpu')
+            browser.maximize_window()
+            browser.implicitly_wait(5)
+        else:
+            options = webdriver.ChromeOptions()
+            options.headless = False
+            # s = Service('Tools/operadriver')
+            # webdriver_service = service.Service('Tools/operadriver')
+            # webdriver_service.start()
+            # browser = webdriver.Remote(webdriver_service.service_url, webdriver.DesiredCapabilities.OPERA)
+            browser = webdriver.Chrome(executable_path='Tools/operadriver', options=options)
+            browser.maximize_window()
+            browser.implicitly_wait(5)
+    elif browser_name == 'safari':
+        s = Service('Tools/safaridriver')
+        browser = webdriver.Safari(service=s)
+        browser.maximize_window()
+        browser.implicitly_wait(5)
+        print(f'Start {browser_name} browser for test...')
     else:
         print(f'Browser {browser_name} still not implemented')
 
