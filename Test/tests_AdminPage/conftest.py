@@ -122,12 +122,12 @@ def pytest_addoption(parser):
     # parser.addoption('--language', action='store', default=None,
     #                  help='Choose language: ru, en...(etc)')
 
-
-@pytest.fixture(scope='function')
-def clearing_results_folder():
-    print('\nClearing results folder...')
-    time.sleep(2)
-    os.system("rm -rf /Volumes/MacOS/Users/max_kazliakouski/.jenkins/workspace/Final_project/allure-results/*")
+# was added to jenkins job for each browser
+# @pytest.fixture(scope='function')
+# def clearing_results_folder():
+#     print('\nClearing results folder...')
+#     time.sleep(2)
+#     os.system("rm -rf /Volumes/MacOS/Users/max_kazliakouski/.jenkins/workspace/Final_project/allure-results/*")
 
 
 @pytest.fixture(scope='function')

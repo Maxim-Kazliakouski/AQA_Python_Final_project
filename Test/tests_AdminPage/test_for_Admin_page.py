@@ -9,8 +9,7 @@ from Locators.admin_page_locators import AdminPageLocators
 
 class Test_for_admin_page:
     class Test_positive_cases:
-        def test_user_on_login_page(self, browser, starting_clearing_closing_db, logs_admin_page,
-                                    clearing_results_folder):
+        def test_user_on_login_page(self, browser, starting_clearing_closing_db, logs_admin_page):
             link = TestDataAdminPage.ADMIN_PAGE_LOGIN_URL
             page = from_admin_page.AdminPage(browser, link)
             page.open_page(link)
