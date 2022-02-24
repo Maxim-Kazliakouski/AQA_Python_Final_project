@@ -22,3 +22,7 @@ User isn't on the admin login page
 Pet hasn't been found by ID, status code -> 404
 [2022-02-23 02:46:01,093] -- [ERROR][31]--[Test.tests_for_API.conftest->tests_for_API]: 
 Pet hasn't been found by ID, status code -> 404
+[2022-02-23 21:32:22,742] -- [ERROR][31]--[Test.tests_for_API.conftest->tests_for_API]: 
+Pet hasn't been found by ID, status code -> 404
+[2022-02-24 00:12:46,995] -- [ERROR][31]--[Test.tests_for_API.conftest->tests_for_API]: 
+Pet hasn't been found by ID, status code -> 404
