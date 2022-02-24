@@ -1,4 +1,6 @@
 import time
+import pytest
+from selenium.common.exceptions import TimeoutException
 import Pages.AdminPage as from_admin_page
 import DataBase.PostgreSQL as DB
 from Test.tests_for_MainPage.data_for_MainPage import TestData
@@ -157,24 +159,24 @@ class Test_for_admin_page:
                 logs_admin_page.error("The user has been created without confirmed password")
                 raise err
 
-        # @pytest.mark.parametrize('forbidden_symbols', TestDataAdminPage.FORBIDDEN_SYMBOLS_FOR_USERNAME)
-        # def test_creating_user_with_forbidden_symbols(self, browser, logs_admin_page, forbidden_symbols):
-        #     link = TestDataAdminPage.ADMIN_PAGE_LOGIN_URL
-        #     page = from_admin_page.AdminPage(browser, link)
-        #     page.open_page(link)
-        #     page.login_to_admin_page_under_admin()
-        #     page.creating_user_with_forbidden_symbols(forbidden_symbols)
-        #     try:
-        #         error = page.search_element(AdminPageLocators.ERROR_MESSAGE_FORBIDDEN_SYMBOLS_DURING_REG_USERNAME).text
-        #     except TimeoutException as err:
-        #         logs_admin_page.error('There is no such element on the page like error message...')
-        #         raise err
-        #     try:
-        #         assert TestDataAdminPage.ERROR_MESSAGE_FORBIDDEN_SYMBOLS_FOR_USERNAME == error, \
-        #             'The forbidden symbol accepted for username'
-        #     except AssertionError as err:
-        #         logs_admin_page.error('The forbidden symbol accepted for username')
-        #         raise err
+        @pytest.mark.parametrize('forbidden_symbols', TestDataAdminPage.FORBIDDEN_SYMBOLS_FOR_USERNAME)
+        def test_creating_user_with_forbidden_symbols(self, browser, logs_admin_page, forbidden_symbols):
+            link = TestDataAdminPage.ADMIN_PAGE_LOGIN_URL
+            page = from_admin_page.AdminPage(browser, link)
+            page.open_page(link)
+            page.login_to_admin_page_under_admin()
+            page.creating_user_with_forbidden_symbols(forbidden_symbols)
+            try:
+                error = page.search_element(AdminPageLocators.ERROR_MESSAGE_FORBIDDEN_SYMBOLS_DURING_REG_USERNAME).text
+            except TimeoutException as err:
+                logs_admin_page.error('There is no such element on the page like error message...')
+                raise err
+            try:
+                assert TestDataAdminPage.ERROR_MESSAGE_FORBIDDEN_SYMBOLS_FOR_USERNAME == error, \
+                    'The forbidden symbol accepted for username'
+            except AssertionError as err:
+                logs_admin_page.error('The forbidden symbol accepted for username')
+                raise err
 
         def test_redirection_from_admin_panel_to_main_page(self, browser, logs_admin_page):
             link = TestDataAdminPage.ADMIN_PAGE_LOGIN_URL
