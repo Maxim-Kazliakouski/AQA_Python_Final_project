@@ -79,4 +79,13 @@ class MainPage(BasePage):
         except:
             return False
 
+    def getting_default_username_password(self):
+        default = self.search_element(MainPageLocators.DEFAULT_NAME_PASSWORD_FROM_MAIN_PAGE).text
+        return default
+
+    def getting_amount_of_images(self):
+        images = self.search_element(MainPageLocators.IMAGES).text
+        amount_of_images = images.count('View')
+        return int(amount_of_images)
+
 

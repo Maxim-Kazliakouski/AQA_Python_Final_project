@@ -12,3 +12,6 @@ class MainPageLocators:
     CONTACT_LIST = By.CLASS_NAME, "list-unstyled"
     ABOUT_INFO = By.CLASS_NAME, "text-muted"
     ALBUM_BUTTON = By.CLASS_NAME, "navbar-brand.d-flex.align-items-center"
+    DEFAULT_NAME_PASSWORD_FROM_MAIN_PAGE = By.XPATH, "//span[contains(text(),'(ID:admin, PW:password)')]"
+    IMAGES = By.XPATH, "//body/main[1]/div[1]/div[1]/div[1]"
+

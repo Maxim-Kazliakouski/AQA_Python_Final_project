@@ -8,6 +8,7 @@ from Test.tests_for_API.data_for_api import APIdata
 class Tests_for_pet_adding:
     class Tests_positive:
         def test_pet_adding(self, deleting_pet, logs_API):
+            """This case checking, that pet has been added"""
             response = requests.post(APIdata.REQUEST_FOR_ADDING_PET, json=APIdata.DATA_FOR_ADDING_PET)
             json_response = response.json()
             conftest.pars_for_creation_user(json_response)
@@ -20,6 +21,7 @@ class Tests_for_pet_adding:
 
         @pytest.mark.xfail
         def test_finding_pet_by_id(self, logs_API):
+            """This case checking, that there is opportunity to find pet by id"""
             response = requests.get(APIdata.REQUEST_FOR_FINDING_PET_BY_ID)
             json_response = response.json()
             print(json_response)
@@ -32,6 +34,7 @@ class Tests_for_pet_adding:
                 raise err
 
         def test_updating_pet_name(self, logs_API):
+            """This case checks, that there is opportunity to update pet name"""
             response = requests.put(APIdata.REQUEST_FOR_UPDATING_PET_NAME, json=APIdata.DATA_FOR_UPDATING_PET_NAME)
             json_response = response.json()
             conftest.pars_for_creation_user(json_response)

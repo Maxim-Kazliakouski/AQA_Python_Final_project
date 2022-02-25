@@ -12,6 +12,7 @@ from Locators.admin_page_locators import AdminPageLocators
 class Test_for_admin_page:
     class Test_positive_cases:
         def test_user_on_login_page(self, browser, starting_clearing_closing_db, logs_admin_page):
+            """This case checking, that user is on login page"""
             link = TestDataAdminPage.ADMIN_PAGE_LOGIN_URL
             page = from_admin_page.AdminPage(browser, link)
             page.open_page(link)
@@ -23,6 +24,7 @@ class Test_for_admin_page:
                 raise error
 
         def test_user_is_logged_to_admin_page(self, browser, logs_admin_page):
+            """This case checking, that user is logged to admin page"""
             link = TestDataAdminPage.ADMIN_PAGE_LOGIN_URL
             page = from_admin_page.AdminPage(browser, link)
             page.open_page(link)
@@ -35,6 +37,7 @@ class Test_for_admin_page:
                 raise error
 
         def test_adding_new_group(self, browser, adding_new_group_via_db, logs_admin_page):
+            """This case checking, that new group was added"""
             link = TestDataAdminPage.ADMIN_PAGE_LOGIN_URL
             page = from_admin_page.AdminPage(browser, link)
             page.open_page(link)
@@ -48,6 +51,7 @@ class Test_for_admin_page:
                 raise error
 
         def test_creating_user(self, browser, deleting_user_from_admin_panel, logs_admin_page):
+            """This case checking, that user has been created"""
             link = TestDataAdminPage.ADMIN_PAGE_LOGIN_URL
             page = from_admin_page.AdminPage(browser, link)
             page.open_page(link)
@@ -66,6 +70,7 @@ class Test_for_admin_page:
                 raise error
 
         def test_adding_user_to_the_group(self, browser, deleting_user_from_group, logs_admin_page):
+            """This case checking, that user has been added to the group"""
             link = TestDataAdminPage.ADMIN_PAGE_LOGIN_URL
             page = from_admin_page.AdminPage(browser, link)
             page.open_page(link)
@@ -86,7 +91,9 @@ class Test_for_admin_page:
                 logs_admin_page.error(f"The user with ID = {user_id} hasn't been added to the group!")
                 raise error
 
-        def test_creating_user_in_admin_panel(self, browser, logs_admin_page, deleting_user_from_admin_panel):
+        def test_creating_user_in_admin_panel_with_all_statuses(self, browser, logs_admin_page,
+                                                                deleting_user_from_admin_panel):
+            """This case checking, that user with all privileges has been created"""
             link = TestDataAdminPage.ADMIN_PAGE_LOGIN_URL
             page = from_admin_page.AdminPage(browser, link)
             page.open_page(link)
@@ -118,6 +125,7 @@ class Test_for_admin_page:
 
     class Test_negative_cases:
         def test_creating_user_without_username(self, browser, logs_admin_page):
+            """This case checking, that there is no opportunity to create user without username"""
             link = TestDataAdminPage.ADMIN_PAGE_LOGIN_URL
             page = from_admin_page.AdminPage(browser, link)
             page.open_page(link)
@@ -132,6 +140,7 @@ class Test_for_admin_page:
                 raise err
 
         def test_creating_user_without_password(self, browser, logs_admin_page):
+            """This case checking, that there is no opportunity to create user without password"""
             link = TestDataAdminPage.ADMIN_PAGE_LOGIN_URL
             page = from_admin_page.AdminPage(browser, link)
             page.open_page(link)
@@ -146,6 +155,7 @@ class Test_for_admin_page:
                 raise err
 
         def test_creating_user_without_confirmed_password(self, browser, logs_admin_page):
+            """This case checking, that there is no opportunity to create user without confirmed password"""
             link = TestDataAdminPage.ADMIN_PAGE_LOGIN_URL
             page = from_admin_page.AdminPage(browser, link)
             page.open_page(link)
@@ -161,6 +171,7 @@ class Test_for_admin_page:
 
         @pytest.mark.parametrize('forbidden_symbols', TestDataAdminPage.FORBIDDEN_SYMBOLS_FOR_USERNAME)
         def test_creating_user_with_forbidden_symbols(self, browser, logs_admin_page, forbidden_symbols):
+            """This case checking, that there is no opportunity to create user with username with forbidden symbols"""
             link = TestDataAdminPage.ADMIN_PAGE_LOGIN_URL
             page = from_admin_page.AdminPage(browser, link)
             page.open_page(link)
@@ -179,6 +190,7 @@ class Test_for_admin_page:
                 raise err
 
         def test_redirection_from_admin_panel_to_main_page(self, browser, logs_admin_page):
+            """This case checks, that there is correct redirection from admin to main page"""
             link = TestDataAdminPage.ADMIN_PAGE_LOGIN_URL
             page = from_admin_page.AdminPage(browser, link)
             page.open_page(link)
@@ -192,6 +204,7 @@ class Test_for_admin_page:
                 raise err
 
         def test_changing_password_in_admin_panel(self, browser, logs_admin_page):
+            """This case checking, that there is opportunity to change password in admin panel"""
             link = TestDataAdminPage.ADMIN_PAGE_LOGIN_URL
             page = from_admin_page.AdminPage(browser, link)
             page.open_page(link)
