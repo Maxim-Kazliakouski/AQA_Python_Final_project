@@ -1,5 +1,4 @@
 from selenium.webdriver.common.by import By
-
 from Test.tests_AdminPage.data_for_AdminPage import TestDataAdminPage
 import DataBase.PostgreSQL as DB
 from Test.tests_for_db.data_for_db import TestDataDB
