@@ -1,5 +1,4 @@
 import time
-# from Test.tests_AdminPage.test_for_Admin_page import TestDataAdminPage
 from Test.tests_AdminPage.data_for_AdminPage import TestDataAdminPage
 from Locators.main_page_locators import MainPageLocators
 from Pages.BasePage import BasePage
