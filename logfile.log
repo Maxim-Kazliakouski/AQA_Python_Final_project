@@ -1,10 +1,4 @@
-[2022-02-17 15:16:24,391] -- [ERROR][168]--[Test.tests_AdminPage.conftest->tests_AdminPage]: 
-There is no such element on the page...
-[2022-02-21 15:57:50,665] -- [ERROR][48]--[Test.tests_for_MainPage.conftest->Tests_for_MainPAge]: 
-There is no all contacts: Follow on Twitter
-Like on Facebook
-Email me
-[2022-02-21 19:12:56,498] -- [ERROR][191]--[Test.tests_AdminPage.conftest->tests_AdminPage]: 
+[2022-02-21 19:12:56,498] -- [ERROR][191]--[Test.tests_AdminPage.conftest->tests_AdminPage]:
 User isn't on main page or don't logout
 [2022-02-21 19:14:15,337] -- [ERROR][192]--[Test.tests_AdminPage.conftest->tests_AdminPage]: 
 User isn't on main page or don't logout
