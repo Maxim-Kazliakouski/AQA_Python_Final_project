@@ -1,4 +1,3 @@
-import time
 from Test.tests_AdminPage.data_for_AdminPage import TestDataAdminPage
 from Locators.main_page_locators import MainPageLocators
 from Pages.BasePage import BasePage
@@ -90,9 +89,6 @@ class AdminPage(BasePage):
 
     def adding_user_to_group(self):
         group = self.search_element(AdminPageLocators.GROUP_NAME)
-        # action = ActionChains(self.browser)
-        # action.double_click(on_element=group)
-        # action.perform()
         group.click()
         add_button = self.search_element(AdminPageLocators.ADD_BUTTON)
         add_button.click()
@@ -197,8 +193,3 @@ class AdminPage(BasePage):
         new_password2.send_keys(TestDataAdminPage.PASSWORD_FOR_ADMIN)
         change_my_password_button = self.search_element(AdminPageLocators.CHANGE_MY_PASSWORD_BUTTON)
         change_my_password_button.click()
-
-
-
-
-
