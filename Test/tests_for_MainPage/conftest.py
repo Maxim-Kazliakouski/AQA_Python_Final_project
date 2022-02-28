@@ -3,13 +3,9 @@ import pytest
 import logging
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.opera import options
 import os
-# import sys
-# sys.path.insert(0, '/Volumes/Work/Python_courses/Project/Final_project')
 import DataBase.PostgreSQL as DB
 from DataBase.data_for_connection import ConnectionToDB
-# from Test.tests_for_db.data_for_db import TestDataDB
 from ..tests_for_db.data_for_db import TestDataDB
 
 

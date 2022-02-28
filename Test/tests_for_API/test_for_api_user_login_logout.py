@@ -1,6 +1,5 @@
 import requests
 import Test.tests_for_API.conftest as conftest
-# from data_for_api import APIdata
 from Test.tests_for_API.data_for_api import APIdata
 
 
@@ -32,8 +31,6 @@ class Tests_for_user_login_logout:
         def test_delete_user(self, logs_API):
             """This case checks, that there is opportunity to delete user"""
             response = requests.delete(APIdata.REQUEST_FOR_DELETE_USER)
-            # json_response = response.json()
-            # conftest_api.pars_for_creation_user(json_response)
             try:
                 assert response.status_code == APIdata.STATUS_CODE_200, f"User has already deleted and not found, status code -> {response.status_code}"
             except AssertionError as err:

@@ -1,11 +1,7 @@
-import time
 import pytest
 import logging
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-import os
-# import sys
-# sys.path.insert(0, '/Volumes/Work/Python_courses/Project/Final_project')
 import DataBase.PostgreSQL as DB
 from DataBase.data_for_connection import ConnectionToDB
 from Test.tests_for_db.data_for_db import TestDataDB
@@ -71,7 +67,6 @@ def deleting_user_from_group():
     request = DB.execute_query(connection, TestDataDB.QUERY_FOR_DELETING_USER_FROM_ADMIN_PANEL + user_id)
     assert request == success2, "User hasn't been deleted from admin panel!"
     varfile.close()
-    # DB.connection.close()
 
 
 @pytest.fixture(scope='function')

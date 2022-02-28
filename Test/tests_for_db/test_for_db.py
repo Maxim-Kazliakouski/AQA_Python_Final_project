@@ -11,8 +11,4 @@ class Test_for_databases:
                                                    ConnectionToDB.DB_HOST)
         assert connection == TestDataDB.SUCCESS_CONNECT, f"User doesn't connect to database {ConnectionToDB.DB_NAME}"
 
-    # def test_adding_new_group_via_db(self):
-    #     request = DB.execute_query(DB.connection, TestDataDB.QUERY_FOR_ADDING_GROUP)
-    #     assert request == TestDataDB.SUCCESS_ADDING_NEW_GROUP, "New group hasn't been added"
-
 

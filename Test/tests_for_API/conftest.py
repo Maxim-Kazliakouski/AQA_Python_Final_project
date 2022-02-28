@@ -1,6 +1,4 @@
 import logging
-# import sys
-# sys.path.insert(0, '/Volumes/Work/Python_courses/Project/Final_project')
 import pytest
 import requests
 from Test.tests_for_API.data_for_api import APIdata
